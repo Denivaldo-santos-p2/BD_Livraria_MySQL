@@ -1,0 +1,113 @@
+/*EXERCÍCIO */ 
+
+/* Nosso clinete solicitou uma tabela para armazenar os livros que são comercializados pela empresa.
+A solicitação é somente para livros e não há necessidade de  de realozar buscas em tabelas.
+ Hoje há um funcionário de vendas que tem uma tabela do excel para guardar esses registros,
+más as buscas estão ficandoi complexas. Decidiu se entçao criaar um banco de dados separado para esse funcionario.
+
+Após a criação da tabela , devemos entregar algumas queries prontas 
+para que sejam enviadas para o programador. As queries sãp as seguintes:
+
+1 - TRAZER TODOS OS DADOS
+
+2 - TRAZER O NOME DO LIVRO E O NOME DA EDITORA
+
+3 - TRAZER O NOME DO LIVRO E A UF DOS LIVROS PUBLICADOS POR AUTORES DO SEXO MASCULINO.
+
+4 - TRAZER O NOME DO LIVRO E O NUMERO DE PAGINAS DOS LIVROS PUBLICADOS POR AUTORES DO SEXO FEMININO.
+
+5 - TRAZER OS VALORES DOS LIVROS DAS EDITORAS DE SÃO PAULO.
+
+6 TRAZER OS DADOS DOS AUTORES DO SEXO MASCULINO QUE TIVERAM LIVROS PUBLICADOS POR SÃO PAULO OU RIO DE JANEIRO (QUESTÃO DESAFIO)*/
+
+
+BANCO DE DADOS: LIVRARIA
+TABELA:	LIVROS
+/* TIPAGEM*/
+Atributos:	
+NOME DO LIVRO - CARACTERE(30)
+NOME DO AUTOR - CARACTERE (30)
+SEXO DO AUTOR - CARACTERE (1)
+NUMERO DE PÁGINAS - NUMERICO (5)
+NOME DA EDITORA	- CARACTERE (30)
+VALOR DO LIVRO	- NUMERICO FLOAT(8)
+ESTADO (UF) DA EDITORA - CARACTERE (2)
+ANO PUBLICACAO - NUMERICO (4)
+
+
+CREATE DATABASE LIVRARIA;
+
+USE LIVRARIA;
+
+CREATE TABLE LIVROS(
+NOME VARCHAR(50),
+AUTOR VARCHAR(50),
+SEXO CHAR(1),
+PAGINAS INT(5),
+EDITORA VARCHAR(30),
+VALOR FLOAT(8,2),
+UF CHAR(2),
+ANO INT(4)
+);
+
+INSERT INTO LIVROS (NOME,AUTOR,SEXO,PAGINAS,EDITORA,VALOR,UF,ANO) VALUES('Cavaleiro Real','Ana Claudia','F',465,'Atlas',49.9,'RJ',2009);
+
+INSERT INTO LIVROS (NOME,AUTOR,SEXO,PAGINAS,EDITORA,VALOR,UF,ANO) VALUES('SQL para leigos','João Nunes','M',450,'Addison',98,'SP',2018);
+
+INSERT INTO LIVROS (NOME,AUTOR,SEXO,PAGINAS,EDITORA,VALOR,UF,ANO) VALUES
+('Receitas Caseiras','Celia Tavares','F',210,'Atlas',45,'RJ',2008),
+('Pessoas Efetivas','Eduardo Santos','M',390,'Beta',78.99,'RJ',2018),
+('Habitos Saudáveis','Eduardo Santos','M',630,'Beta',150.98,'RJ',2019),
+('A Casa Marrom','Hermes Macedo','M',250,'Bubba',60,'MG',2016),
+('Estacio Querido','Geraldo Francisco','M',310,'Insignia',100,'ES',2015),
+('Pra sempre amigas','Leda Silva','F',510,'Insignia',78.98,'ES',2011),
+('Copas Inesqueciveis','Marco Alcantara','M',200,'Larson',130.98,'RS',2018),
+('O poder da mente','Clara Mafra','F',120,'Continental',56.58,'SP',2017);
+
+/*1 - TRAZER TODOS OS DADOS*/
+
+SELECT * FROM LIVROS;
+
+/*2 - TRAZER O NOME DO LIVRO E O NOME DA EDITORA*/
+
+SELECT NOME,EDITORA 
+FROM LIVROS;
+
+/*3 - TRAZER O NOME DO LIVRO E A UF DOS LIVROS PUBLICADOS POR AUTORES DO SEXO MASCULINO.*/
+
+SELECT NOME,UF 
+FROM LIVROS WHERE 
+SEXO = 'M';
+
+/*4 - TRAZER O NOME DO LIVRO E O NUMERO DE PAGINAS DOS LIVROS PUBLICADOS POR AUTORES DO SEXO FEMININO.*/
+
+SELECT NOME, PAGINAS 
+FROM LIVROS WHERE SEXO = 'F';
+
+/*5 - TRAZER OS VALORES DOS LIVROS DAS EDITORAS DE SÃO PAULO.*/
+
+SELECT NOME, VALOR 
+FROM LIVROS 
+WHERE UF LIKE '%SP';
+
+/*6 TRAZER OS DADOS DOS AUTORES DO SEXO MASCULINO QUE TIVERAM LIVROS PUBLICADOS POR SÃO PAULO OU RIO DE JANEIRO (QUESTÃO DESAFIO)*/
+
+SELECT AUTOR, SEXO, UF 
+FROM LIVROS
+WHERE SEXO = 'M'
+AND (UF = 'SP' OR UF = 'RJ');
+
+/*ou*/
+
+SELECT AUTOR, SEXO, UF 
+FROM LIVROS
+WHERE UF IN('SP','RJ')
+AND SEXO ='M';
+
+/*ou*/
+
+SELECT AUTOR, SEXO, UF 
+FROM LIVROS
+WHERE SEXO = 'M'
+AND UF IN('SP','RJ');
+ 

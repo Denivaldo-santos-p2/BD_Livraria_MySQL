@@ -1,0 +1,31 @@
+Nosso cliente Simbólico da Livraria.
+
+SQL com SGBD MySQL
+Nesse exercício eu criei uma modelagem simples, sem a primeira forma normal, sem chave primaria e sem chave estrangeira.
+Os objetivos são:
+Criar um banco de dados simples para a livraria,
+Criar tabela com onome livros,
+Alimentar a tabela com dados,
+Depois trazer esses dados.
+
+Solicitação:
+Nosso cliente solicitou uma tabela para armazenar os livros que são comercializados pela empresa.
+A solicitação é somente para livros e não há necessidade de  de realozar buscas em tabelas.
+ Hoje há um funcionário de vendas que tem uma tabela do excel para guardar esses registros,
+más as buscas estão ficando complexas. Decidiu se então criar um banco de dados separado para esse funcionario.
+
+Após a criação da tabela , devemos entregar algumas queries prontas 
+para que sejam enviadas para o programador. As queries são as seguintes:
+
+1 - TRAZER TODOS OS DADOS
+
+2 - TRAZER O NOME DO LIVRO E O NOME DA EDITORA
+
+3 - TRAZER O NOME DO LIVRO E A UF DOS LIVROS PUBLICADOS POR AUTORES DO SEXO MASCULINO.
+
+4 - TRAZER O NOME DO LIVRO E O NUMERO DE PAGINAS DOS LIVROS PUBLICADOS POR AUTORES DO SEXO FEMININO.
+
+5 - TRAZER OS VALORES DOS LIVROS DAS EDITORAS DE SÃO PAULO.
+
+6 TRAZER OS DADOS DOS AUTORES DO SEXO MASCULINO QUE TIVERAM LIVROS PUBLICADOS POR SÃO PAULO OU RIO DE JANEIRO (QUESTÃO DESAFIO)*/
+
