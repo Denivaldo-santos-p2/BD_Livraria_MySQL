@@ -4,6 +4,6 @@
 sem a primeira forma normal, sem chave primaria e sem chave estrangeira.
 Os objetivos são:
 Criar um banco de dados simples para a livraria,
-Criar tabela com onome livros,
+Criar tabela com o nome livros,
 Alimentar a tabela com dados,
 Depois trazer esses dados.*
